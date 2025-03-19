@@ -1,0 +1,20 @@
+.anchor{
+    text-decoration: none;
+}
+.social{
+    display: inline-block;
+    margin-right: 25px;
+}
+/* .pro_btn{
+    display: inline-block;
+} */
+.scrollable-sidebar {
+    height: calc(100vh - 150px); /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    /* position: sticky;
+    top: 0; */
+}
+
+.search_nav{
+    margin-right:500px ;
+}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<div class="row">
+    <div class="col-md-9">
+            {% for i in data%}
+            {% if forloop.counter == 1 %}
+            <div class="mt-5 shadow px-4 pb-3">
+                <h4>Customer Detail</h4>
+                <hr>
+                <p><strong>Customer UserName:</strong>&nbsp; {{i.uid.username}}</p>
+                <p><strong>Email ID:</strong>&nbsp;{{i.uid.email}}</p>
+                {% comment %} <p><strong>Mobile number:</strong>&nbsp; 6554123546</p> {% endcomment %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% for i in data %}
+            <div class="mt-3 shadow">
+                <div class="row mt-3 pb-3">
+                    <div class="col-md-4">
+                        <img src="{{i.pid.image.url}}" height="150px" width="100%" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <p><strong>Product Name:</strong>  {{i.pid.name}}</p>
+                        <p><strong>Category:</strong>  {{i.pid.category}}</p>
+                        <p><strong>Price:</strong>  {{i.pid.price}}</p>
+                        <p>
+                            <a href="/updateqty/0/{{i.id}}"><button class="btn btn-success">-</button></a>
+                            <input type="text" name="" id="" value="{{ i.qty }}">
+                            <a href="/updateqty/1/{{i.id}}"><button class="btn btn-success">+</button></a>
+                        </p>
+                        <a href="/removecart/{{i.id}}"><button class="btn btn-danger ">Remove</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    
+    <div class="col-md-3">
+            <div class="shadow px-3 pb-3 mt-5">
+                <h4>Price Details</h4>
+                <hr>
+                <p><strong>Price({{n}}Items):</strong>   Rs {{total}}</p>
+
+                <p><strong>Total Amoutnt:</strong>   Rs {{total}}</p>
+                <a href="/placeorder"><button class="btn btn-success">Place Order</button></a>
+            </div>
+    </div>
+
+</div>
+
+
+{% endblock 'main' %}

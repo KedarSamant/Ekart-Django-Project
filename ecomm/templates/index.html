@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<div class="row">
+    <div class="col-md-3 mt-4 bg-light p-3 scrollable-sidebar">  
+        <h5>Filter by Category</h5>
+        <hr>
+        <p><a href="/" class="anchor">All</a></p>
+        {% for category in cat %}
+        <p><a href="/catfilter/{{category.id}}" class="anchor">{{category.name}}</a></p>
+        {% comment %} <p><a href="#" class="anchor">Cloths</a></p>
+        <p><a href="#" class="anchor">shoes</a></p>
+        <p><a href="#" class="anchor">Sport</a></p> {% endcomment %}
+        {% endfor %}
+        <hr>
+       
+        <h5>Filter by price</h5>
+        <hr>
+        <form method="GET" action="/range">
+            {% if errormsg %}
+                <div class="alert alert-danger">
+                        {{ errormsg }}
+                </div>
+            {% endif %}
+            <div class="mb-2">
+                <label for="input1" class="form-label">MIN</label>
+                <input type="number" class="form-control" name="min" id="input1" placeholder="Enter Min value">
+            </div>
+            <div class="mb-2">
+                <label for="input2" class="form-label">MAX</label>
+                <input type="number" class="form-control" name="max" id="input2" placeholder="Enter Max value">
+            </div>
+            <div class="mb-2">
+                <input type="submit" class="btn btn-danger" value="Search">
+                
+            </div>
+        </form>
+        <h5 class="mt-3">Sort by price</h5>
+        <hr>
+        <p><a href="/sort/1" class="anchor">High to low</a></p>
+        <p><a href="/sort/0"class="anchor">Low to high</a></p>  
+    </div><!-- end of sidebar -->
+     <!-- product start -->
+    <div class="col-md-9 mt-4 bg-light p-3">
+        <div class="row">
+            {% for product in data %}
+            <div class="col-md-3 mb-2">
+                <div class="card" style="width: 100%;">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="..." style="height:2 50px ;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.name}}</h5>
+                      <p class="card-text">{{product.description}}</p>
+                      <p class="card-text"><strong>₹ {{product.price}}</strong></p>
+                      <a href="/pdetails/{{product.id}}" class="btn btn-danger">see details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+             <!-- end product1 -->
+            
+            
+            
+            
+            
+           
+            
+        </div>
+    </div><!-- product section end -->
+</div>
+{% endblock 'main' %}

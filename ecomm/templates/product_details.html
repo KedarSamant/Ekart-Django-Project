@@ -1,0 +1,37 @@
+{% extends 'base.html '%}
+{% load static %}
+{% block 'main' %}
+<div class="row">
+    <div class="col-md-8 mt-5 mx-auto">
+            <div class="row">
+                {% if success %}
+                    <div class="alert alert-success">
+                        {{success}}
+                    </div>
+                {% endif %}
+                {% if msg %}
+                    <div class="alert alert-danger">
+                        {{msg}}
+                    </div>
+                {% endif %}
+                {% comment %} {% for product in data %} {% endcomment %}
+                    <div class="col-md-6">
+                        <img src="{{data.image.url}}" height="350" width="100%" alt="...">
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <p><strong>Product Name:</strong>&nbsp;&nbsp;{{data.name}}</p>
+                        <p><strong>Category:</strong>&nbsp;&nbsp;{{data.category}}</p>
+                        <p><strong>Price:</strong>&nbsp;&nbsp;{{data.price}}</p>
+                        <p><strong>Description:</strong>&nbsp;&nbsp;{{data.big_description}}</p>
+                        <a href="/addtocart/{{data.id}}" class="pro_btn"><button class="btn btn-warning ">Add to Cart</button></a>
+                        <a href="/viewcart" class="pro_btn"><button class="btn btn-danger ">View Cart</button></a>
+                        <a href="/" class="pro_btn"><button class="btn btn-primary ">Shop More</button></a>
+                    </div>
+                    
+                {% comment %} {% endfor %} {% endcomment %}
+            </div>
+    </div>
+</div>
+<!-- product detail end -->
+
+{% endblock 'main' %}

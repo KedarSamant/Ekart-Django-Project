@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<div class="row">
+    <div class="col-md-9">
+        {% for i in data%}
+        {% if forloop.counter == 1 %}
+            <div class="mt-5 shadow px-4 pb-3">
+                <h4>Your Orders</h4>
+                <hr>
+                
+            </div>
+        {% endif %}
+        {% endfor %}
+            <div class="bg-success mt-2 p-2 text-white">
+                All Order Summary
+            </div>
+            {% for i in data %}
+            <div class="mt-3 shadow">
+                <div class="row mt-3 pb-3">
+                    <div class="col-md-4">
+                        <img src="{{i.pid.image.url}}" height="150px" width="100%" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <p><strong>Product Name:</strong>  {{i.pid.name}}</p>
+                        <p><strong>Category:</strong>  {{i.pid.category}}</p>
+                        <p><strong>Price:</strong>  {{i.pid.price}}</p>
+                        <p><strong>Quantity:</strong>{{i.qty}}</p>
+                        <p><strong>Order Date:</strong>{{i.created_at}}</p>
+                        <!-- <a href="/removecart/{{i.id}}"><button class="btn btn-danger ">Remove</button></a> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           
+    </div>
+    <div class="col-md-3">
+            <div class="shadow px-3 pb-3 mt-5">
+                <h4>Price Details</h4>
+                <hr>
+                <p><strong>Price({{n}}Items):</strong>   Rs {{total}}</p>
+
+                <p><strong>Total Amount:</strong>   {{total}}</p>
+                <!-- <a href="/makepayment"><button class="btn btn-success">Make Payment</button></a> -->
+            </div>
+    </div>
+
+</div>
+
+
+{% endblock 'main' %}

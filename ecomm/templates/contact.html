@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+
+<div class="row">
+    <div class="col-md-12 mt-3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.9734544888765!2d72.96327417387845!3d19.19636174818554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b919c46e4cb3%3A0x9d6295f92186510d!2sOasis%20Royale!5e0!3m2!1sen!2sin!4v1741790604723!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div><!--google map end-->
+
+    <div class="col-md-6 mt-5">
+      <h3 class="mt-2"><i class="bi bi-building-fill"></i></h3>
+      <hr>
+      7th floor Oasis Royale, <br>
+      Near TMC office, <br>
+      Thane 400030, <br>
+      Maharashtra, <br>
+      <h6 class="mt-2"><i class="bi bi-telephone-plus-fill"></i> &nbsp;7666980874</h6> 
+      <h6 class="mt-2"><i class="bi bi-envelope-fill"></i> &nbsp;ksamant726@gmail.com</h6>
+    </div><!--Address mobile and email end-->
+
+    <div class="col-md-6 mt-5">
+      <h3 class="mt-2"><i class="bi bi-question-circle-fill"></i></h3>
+      <hr>
+      <form method="POST" action="">
+        <div class="mb-2">
+            <label for="input1" class="form-label"><strong> Name</strong></label>
+            <input type="text" class="form-control" name="fname" id="input1" placeholder="enter FullName">
+        </div>
+        <div class="mb-2">
+          <label for="input2" class="form-label"><strong>Mobile</strong></label>
+          <input type="number" class="form-control" name="mobile" id="input2" placeholder="enter Mobile">
+      </div>
+      <div class="mb-2">
+        <label for="input3" class="form-label"><strong>Email</strong></label>
+        <input type="email" class="form-control" name="email" id="input3" placeholder="enter Email">
+    </div>
+    <div class="mb-2">
+      <label for="input4" class="form-label"><strong>Message</strong></label>
+      <textarea class="form-control" name="msg" id="input4">Enter Message</textarea>
+  </div>
+  <div class="mb-2">
+    <input type="submit" value="send" class="btn btn-danger">
+  </div>
+      </form>
+    </div><!--Contact form end-->
+</div>
+
+{% endblock 'main' %}
